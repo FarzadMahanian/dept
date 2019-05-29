@@ -1,0 +1,162 @@
+$font-color: #000000;
+$border-color: #000000;
+$bg-dark-color: #000000;
+
+$screen-sm-min: 576px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;
+
+
+// Small devices
+@mixin sm {
+   @media (min-width: #{$screen-sm-min}) {
+       @content;
+   }
+}
+
+// Medium devices
+@mixin md {
+   @media (min-width: #{$screen-md-min}) {
+       @content;
+   }
+}
+
+// Large devices
+@mixin lg {
+   @media (min-width: #{$screen-lg-min}) {
+       @content;
+   }
+}
+
+// Extra large devices
+@mixin xl {
+   @media (min-width: #{$screen-xl-min}) {
+       @content;
+   }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-2%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes shrink {
+  0% {
+    width: 95%;
+  }
+  100% {
+    width: 90%;
+  }
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: $font-color;
+}
+
+.App {
+  .app-header {
+    height: calc(100vh);
+    background-image: url('./img/01.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    .app-nav {
+      border-bottom: 1px solid $border-color;
+      padding: 50px 0 15px;
+
+      .app-logo {
+        width: 100px;
+        height: auto;
+      }
+
+      .app-menu-title {
+        display: inline-block;
+        font-weight: bold;
+        margin: 0 15px;
+      }
+
+      .app-menu-container {
+        display: inline-block;
+        z-index: 99;
+        opacity: 0.9;
+        background-color: transparent;
+        vertical-align: bottom;
+      }
+
+      .app-menu {
+        margin-top: 98px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        background-color: $bg-dark-color;
+        opacity: 1;
+        color: #fff;
+        transition: height 0.3s ease-out;
+        z-index: 100;
+      }
+    }
+
+    .header-title {
+      font-size: 70px;
+      top: 20%;
+      text-align: center;
+      text-transform: uppercase;
+
+      @include md {
+        font-size: 150px;
+        text-align: left;
+        margin-left: 130px;
+      }
+
+      @include lg {
+        font-size: 250px;
+      }
+
+      @include xl {
+        font-size: 300px;
+      }
+    }
+
+    .header-button {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: auto;
+      bottom: 30px;
+      margin: 0 auto;
+      padding: 15px 40px;
+      border-radius: 0;
+      width: calc(90vw);
+
+      @include md {
+        width: auto;
+        display: inline-block;
+        bottom: 100px;
+        left: auto;
+        right: 100px;
+      }
+    }
+  }
+}
